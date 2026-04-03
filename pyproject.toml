@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yt-knowledge-pipeline"
+version = "0.1.0"
+description = "A pipeline to extract and process YouTube transcripts"
+requires-python = ">=3.10"
+dependencies = [
+    "youtube-transcript-api",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

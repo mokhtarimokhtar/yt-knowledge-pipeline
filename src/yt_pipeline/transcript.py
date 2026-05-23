@@ -26,8 +26,9 @@ def extract_video_id(url: str) -> str:
 
 
 def fetch_transcript_text(video_id: str) -> str:
-    transcript = YouTubeTranscriptApi.get_transcript(video_id)
-    return "\n".join(entry["text"] for entry in transcript)
+    ytt_api = YouTubeTranscriptApi()
+    transcript = ytt_api.fetch(video_id)
+    return "\n".join(snippet.text for snippet in transcript.snippets)
 
 
 def save_transcript(
@@ -48,3 +49,4 @@ def save_transcript(
     )
     file_path.write_text(content, encoding="utf-8")
     return file_path
+

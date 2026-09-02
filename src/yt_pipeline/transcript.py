@@ -27,7 +27,8 @@ def extract_video_id(url: str) -> str:
 
 def fetch_transcript_text(video_id: str) -> str:
     ytt_api = YouTubeTranscriptApi()
-    transcript = ytt_api.fetch(video_id)
+    # transcript = ytt_api.fetch(video_id)
+    transcript = ytt_api.fetch(video_id, languages=["fr", "en"])
     return "\n".join(snippet.text for snippet in transcript.snippets)
 
 
